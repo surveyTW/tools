@@ -9,7 +9,7 @@ repo sync -dq
 git checkout `git describe --abbrev=0`
 echo ".repo" >> .gitignore
 
-# download modules
+# Download modules
 drush dl admin_menu
 drush dl ctools
 drush dl button_field
@@ -23,19 +23,24 @@ drush dl webform
 #drush dl devel
 #drush dl examples
 
-# download themes
+# Download themes
 drush dl bootstrap
 
 mkdir sites/default/files
 cp sites/default/default.settings.php sites/default/settings.php
 
-# do settings via browser
+# Do settings via browser
 
 
-# enable modules
-drush en webform
-drush en module_filter
-drush en admin_menu
-drush en bootstrap
-drush en jquery_update
+# After setup drupal
+chmod 444 sites/default/settings.php
+
+# Enable modules
+drush en webform -y
+drush en module_filter -y
+drush en admin_menu -y
+drush en jquery_update -y
+
+# Enable themes
+drush en bootstrap -y
 
