@@ -40,6 +40,7 @@ drush en webform -y
 drush en module_filter -y
 drush en admin_menu -y
 drush en jquery_update -y
+drush en bundle_copy -y
 
 # Enable themes
 drush en bootstrap -y
