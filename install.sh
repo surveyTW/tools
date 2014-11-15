@@ -10,21 +10,22 @@ git checkout `git describe --abbrev=0`
 echo ".repo" >> .gitignore
 
 # Download modules
-#drush dl admin_menu
-#drush dl ctools
-#drush dl button_field
-#drush dl entity
-#drush dl jquery_update
-#drush dl module_filter
-#drush dl options_element
-#drush dl rules
-#drush dl views
-#drush dl webform
+drush dl admin_menu
+drush dl ctools
+drush dl button_field
+drush dl entity
+drush dl jquery_update
+drush dl module_filter
+drush dl options_element
+drush dl rules
+drush dl views
+drush dl webform
+drush dl fb
 #drush dl devel
 #drush dl examples
 
 # Download themes
-#drush dl bootstrap
+drush dl bootstrap
 
 mkdir sites/default/files
 cp sites/default/default.settings.php sites/default/settings.php
@@ -50,6 +51,7 @@ drush en module_filter -y
 drush en admin_menu_toolbar -y
 drush en jquery_update -y
 drush en bundle_copy -y
+drush en fb_connect fb_user fb_views -y
 
 drush dis overlay -y
 drush dis toolbar -y
