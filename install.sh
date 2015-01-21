@@ -18,7 +18,6 @@ drush dl ctools
 #drush dl devel
 #drush dl examples
 drush dl entity
-drush dl fb
 drush dl jquery_update
 drush dl libraries
 drush dl module_filter
@@ -27,6 +26,7 @@ drush dl phpmailer
 drush dl rules
 drush dl views
 drush dl webform
+drush dl simple_fb_connect
 
 # Download themes
 drush dl bootstrap
@@ -34,8 +34,13 @@ drush dl bootstrap
 
 # Do drupal install settings
 #    --db-url=<mysql://root:pass@host/db>
-drush site-install standard --site-name='Survey' --account-name='root' --account-pass='112233' --db-url=mysql://drupal7:ubuntu@localhost/drupaldb
+drush site-install standard --site-name='Survey' --account-name='root' --account-pass='112233' --db-url=mysql://drupal7:ubuntu@localhost/drupaldb --clean-url
 
+# Update httpd configuration for clean URL
+touch /etc/httpd/conf.d/drupal.conf
+#<Directory 'PATH'>
+#    AllowOverride All
+#</Directory>
 
 # Enable modules
 drush en webform -y
@@ -44,7 +49,7 @@ drush en admin_menu_toolbar -y
 drush en jquery_update -y
 drush en bundle_copy -y
 drush en libraries -y
-drush en fb_connect fb_user fb_views -y
+drush en simple_fb_connect -y
 drush en surveydate -y
 
 drush dis overlay -y
@@ -65,4 +70,5 @@ drush vset jquery_update_compression_type 'min'
 drush vset jquery_update_jquery_cdn 'google'
 drush vset theme_default 'survey'
 
+# Import content type from https://github.com/surveyTW/tools/blob/master/settings/survey/content_type.txt
 
