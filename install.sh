@@ -1,9 +1,14 @@
 #!/bin/bash
 
+# Global git configuration
+git config --global user.name "Someone"
+git config --global user.email "someone@gmail.com"
+
 # Clear drupal sql database
 #drush sql-drop
 
 repo init -u git://github.com/surveyTW/manifest -m survey.xml
+# Do <repo init -m survey.xml --config-name> if you want to change username/email
 repo sync -dq
 
 git checkout `git describe --abbrev=0`
@@ -33,7 +38,7 @@ drush dl bootstrap
 
 
 # Do drupal install settings
-#    --db-url=<mysql://root:pass@host/db>
+#    --db-url=<mysql://user:password@host/dbname>
 drush site-install standard --site-name='Survey' --account-name='root' --account-pass='112233' --db-url=mysql://drupal7:ubuntu@localhost/drupaldb --clean-url
 
 # Update httpd configuration for clean URL
