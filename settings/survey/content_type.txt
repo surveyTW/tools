@@ -232,6 +232,72 @@ $data = array(
         ),
       ),
     ),
+    'field_latlng' => array(
+      'translatable' => '0',
+      'entity_types' => array(),
+      'settings' => array(
+        'max_length' => '64',
+      ),
+      'storage' => array(
+        'type' => 'field_sql_storage',
+        'settings' => array(),
+        'module' => 'field_sql_storage',
+        'active' => '1',
+        'details' => array(
+          'sql' => array(
+            'FIELD_LOAD_CURRENT' => array(
+              'field_data_field_latlng' => array(
+                'value' => 'field_latlng_value',
+                'format' => 'field_latlng_format',
+              ),
+            ),
+            'FIELD_LOAD_REVISION' => array(
+              'field_revision_field_latlng' => array(
+                'value' => 'field_latlng_value',
+                'format' => 'field_latlng_format',
+              ),
+            ),
+          ),
+        ),
+      ),
+      'foreign keys' => array(
+        'format' => array(
+          'table' => 'filter_format',
+          'columns' => array(
+            'format' => 'format',
+          ),
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'field_name' => 'field_latlng',
+      'type' => 'text',
+      'module' => 'text',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'columns' => array(
+        'value' => array(
+          'type' => 'varchar',
+          'length' => '64',
+          'not null' => FALSE,
+        ),
+        'format' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => FALSE,
+        ),
+      ),
+      'bundles' => array(
+        'node' => array(
+          0 => 'surveydate',
+        ),
+      ),
+    ),
     'field_location' => array(
       'translatable' => '0',
       'entity_types' => array(),
@@ -541,7 +607,7 @@ $data = array(
       'translatable' => '0',
       'entity_types' => array(),
       'settings' => array(
-        'max_length' => '255',
+        'max_length' => '32',
       ),
       'storage' => array(
         'type' => 'field_sql_storage',
@@ -588,7 +654,7 @@ $data = array(
       'columns' => array(
         'value' => array(
           'type' => 'varchar',
-          'length' => '255',
+          'length' => '32',
           'not null' => FALSE,
         ),
         'format' => array(
@@ -741,6 +807,46 @@ $data = array(
         'description' => '',
         'default_value' => NULL,
         'field_name' => 'field_email',
+        'entity_type' => 'node',
+        'bundle' => 'surveydate',
+        'deleted' => '0',
+      ),
+    ),
+    'field_latlng' => array(
+      0 => array(
+        'label' => 'LatLng',
+        'widget' => array(
+          'weight' => '4',
+          'type' => 'text_textfield',
+          'module' => 'text',
+          'active' => 1,
+          'settings' => array(
+            'size' => '60',
+          ),
+        ),
+        'settings' => array(
+          'text_processing' => '0',
+          'user_register_form' => FALSE,
+        ),
+        'display' => array(
+          'default' => array(
+            'label' => 'above',
+            'type' => 'text_default',
+            'settings' => array(),
+            'module' => 'text',
+            'weight' => 8,
+          ),
+          'teaser' => array(
+            'type' => 'hidden',
+            'label' => 'above',
+            'settings' => array(),
+            'weight' => 0,
+          ),
+        ),
+        'required' => 0,
+        'description' => 'The Google Map Latitude and Longitude',
+        'default_value' => NULL,
+        'field_name' => 'field_latlng',
         'entity_type' => 'node',
         'bundle' => 'surveydate',
         'deleted' => '0',
@@ -974,9 +1080,9 @@ $data = array(
     ),
     'field_woeid' => array(
       0 => array(
-        'label' => 'woeid',
+        'label' => 'Woeid',
         'widget' => array(
-          'weight' => '3',
+          'weight' => '5',
           'type' => 'text_textfield',
           'module' => 'text',
           'active' => 1,
@@ -994,7 +1100,7 @@ $data = array(
             'type' => 'text_default',
             'settings' => array(),
             'module' => 'text',
-            'weight' => 7,
+            'weight' => 9,
           ),
           'teaser' => array(
             'type' => 'hidden',
