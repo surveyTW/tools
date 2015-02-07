@@ -32,6 +32,10 @@ drush dl rules
 drush dl views
 drush dl webform
 drush dl simple_fb_connect
+drush dl entity_translation
+drush dl variable
+drush dl i18n
+drush dl l10n_update
 
 # Download themes
 drush dl bootstrap
@@ -56,6 +60,10 @@ drush en bundle_copy -y
 drush en libraries -y
 drush en simple_fb_connect -y
 drush en surveydate -y
+drush en locale -y
+drush en entity_translation -y
+drush en i18n -y
+drush en l10n_update -y
 
 drush dis overlay -y
 drush dis toolbar -y
