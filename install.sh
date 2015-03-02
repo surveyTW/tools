@@ -41,9 +41,16 @@ drush dl l10n_update
 drush dl bootstrap
 
 
+# Create mysql db
+#
+# mysql -u root -p
+# create database drupaldb;
+# create user 'user'@'localhost' identified by 'passwd';
+# GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER, CREATE TEMPORARY TABLES ON drupaldb.* TO 'user'@'localhost' IDENTIFIED BY 'passwd';
+
 # Do drupal install settings
 #    --db-url=<mysql://user:password@host/dbname>
-drush site-install standard --site-name='Survey' --account-name='root' --account-pass='112233' --db-url=mysql://drupal7:ubuntu@localhost/drupaldb --clean-url
+drush site-install standard --site-name='Survey' --account-name='root' --account-pass='112233' --db-url=mysql://root:drupal7@localhost/drupaldb --clean-url
 
 # Update httpd configuration for clean URL
 touch /etc/httpd/conf.d/drupal.conf
@@ -85,3 +92,15 @@ drush vset theme_default 'survey'
 
 # Import content type from https://github.com/surveyTW/tools/blob/master/settings/survey/content_type.txt
 
+
+
+# Note
+#
+# 1. Use Drush to Export a Drupal MySQL Database:
+#   drush cc
+#   drush sql-dump > ~/my-sql-dump-file-name.sql
+#
+# 2. Use Drush to Import a Drupal MySQL Database:
+#   drush sql-drop
+#   drush sql-cli < ~/my-sql-dump-file-name.sql
+#   goto http://<ip>//update.php?op=info
