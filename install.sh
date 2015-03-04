@@ -71,6 +71,7 @@ drush en locale -y
 drush en entity_translation -y
 drush en i18n -y
 drush en l10n_update -y
+drush en menu_item_visibility -y
 
 drush dis overlay -y
 drush dis toolbar -y
