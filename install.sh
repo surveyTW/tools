@@ -74,6 +74,7 @@ drush en l10n_update -y
 drush en menu_item_visibility -y
 drush en htmlmail -y
 drush en smtp -y
+drush en login_destination -y
 
 drush dis overlay -y
 drush dis toolbar -y
