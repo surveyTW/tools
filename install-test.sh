@@ -114,5 +114,5 @@ cp -rf tools/mailsystem sites/default/files/mailsystem
 #   drush sql-cli < ~/my-sql-dump-file-name.sql
 #   goto http://<ip>//update.php?op=info
 #
-#記得設site/default權限 site/default/file的owner,local server的話要設rewritebase,還有從site/default/file copy mailsystem....
+#記得設site/default權限 site/default/file的owner,local server的話要設rewritebase(.htaccess)
 
