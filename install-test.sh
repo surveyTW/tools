@@ -96,7 +96,7 @@ drush vset theme_default 'survey'
 
 #copy file from tool
 git clone https://github.com/surveyTW/tools
-cp -rf tools/mailsystem site/default/files/mailsystem
+cp -rf tools/mailsystem sites/default/files/mailsystem
 #rm -rf tools
 
 # Import content type from https://github.com/surveyTW/tools/blob/master/settings/survey/content_type.txt
