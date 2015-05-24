@@ -9,7 +9,7 @@ git config --global user.email "someone@gmail.com"
 
 repo init -u git://github.com/surveyTW/manifest -m survey.xml
 # Do <repo init -m survey.xml --config-name> if you want to change username/email
-repo sync -dq
+repo sync -j 5
 
 git checkout `git describe --abbrev=0`
 echo ".repo" >> .gitignore
@@ -93,6 +93,11 @@ drush vset date_default_timezone 'Asia/Taipei'
 drush vset jquery_update_compression_type 'min'
 drush vset jquery_update_jquery_cdn 'google'
 drush vset theme_default 'survey'
+
+#copy file from tool
+git clone https://github.com/surveyTW/tools
+cp -rf tools/mailsystem site/default/files/mailsystem
+#rm -rf tools
 
 # Import content type from https://github.com/surveyTW/tools/blob/master/settings/survey/content_type.txt
 
