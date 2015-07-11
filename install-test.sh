@@ -75,6 +75,7 @@ drush en menu_item_visibility -y
 drush en htmlmail -y
 drush en smtp -y
 drush en login_destination -y
+drush en bootstrap_login_modal -y
 
 drush dis overlay -y
 drush dis toolbar -y
